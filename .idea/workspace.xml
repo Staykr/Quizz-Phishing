@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="7465c88a-aa45-4f02-9f19-b8ccaa104e14" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +44,10 @@
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/leoma/OneDrive/Documents/GitHub/Quizz-Phishing",
     "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
@@ -87,7 +93,7 @@
       <option name="presentableId" value="Default" />
       <updated>1749484778552</updated>
       <workItem from="1749484779650" duration="75000" />
-      <workItem from="1749485030252" duration="162000" />
+      <workItem from="1749485030252" duration="1261000" />
     </task>
     <servers />
   </component>
