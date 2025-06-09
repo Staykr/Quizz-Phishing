@@ -1,0 +1,95 @@
+/* Reset simple pour unifier les styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* --- HEADER : contexte et question --- */
+#question-context {
+  background-color: lightsteelblue;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#question-context h2 {
+  font-size: 1.4rem;
+  color: darkslateblue;
+}
+
+#question-context h3 {
+  margin-top: 10px;
+  color: darkblue;
+}
+
+/* --- MAIN : deux colonnes --- */
+#quiz-container {
+  display: flex;
+  gap: 20px;
+}
+
+/* MESSAGE PANEL (à gauche) */
+#message-panel {
+  flex: 2;
+  background-color: white;
+  padding: 20px;
+  border-left: 5px solid steelblue;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+#message-panel h4 {
+  color: dodgerblue;
+  margin-bottom: 10px;
+}
+
+#message-panel a {
+  color: darkblue;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* CHOICES PANEL (à droite) */
+#choices-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: whitesmoke;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+#choices-panel button {
+  padding: 12px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: deepskyblue;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#choices-panel button:hover {
+  background-color: lightskyblue;
+}
+
+/* FOOTER (chrono + score plus tard) */
+#status-bar {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: orangered;
+}
