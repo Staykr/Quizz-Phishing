@@ -1,9 +1,14 @@
 // Récupère les boutons
+//const startBtn = document.getElementById('start-button');
 const buttons = document.querySelectorAll('#choices-panel button');
 
 // Récupère la zone où afficher l'explication
 const feedback = document.getElementById('feedback');
 const reputationfeedback = document.getElementById('reputation-feedback');
+
+// Récupère les éléments de l'authentification et du contenu principal
+//const authContainer = document.getElementById('auth-container');
+//const mainContainer = document.getElementById('main-container');
 
 // Exemple de réponse correcte
 const correctChoice = "Signaler au service informatique";
@@ -33,12 +38,34 @@ buttons.forEach(button => {
   });
 });
 
+// Authentification de l'utilisateur
+/*startBtn.addEventListener('click', () => {
+  const name = document.getElementById('username').value.trim();
+  const email = document.getElementById('useremail').value.trim();
+
+  if (name === "" || email === "") {
+    alert("Veuillez remplir tous les champs.");
+    return;
+  }
+
+  // Stockage temporaire en mémoire (optionnel)
+  localStorage.setItem('username', name);
+  localStorage.setItem('useremail', email);
+
+  // Cacher auth, afficher le quiz
+  authContainer.style.display = "none";
+  mainContainer.style.display = "block";
+}); */
+document.getElementById('main-container').style.display = "block";
+
+// Update de la barre de score
 function updateScoreBar() {
   const pourcentage = Math.min((score / maxScore) * 100, 100);
   scoreBar.style.width = `${pourcentage}%`;
   updatereputation();
 }
 
+// Mise à jour de la réputation en fonction du score
 function updatereputation() {
   if (score <= 1) {
     reputationfeedback.textContent = "🔰 Débutant en cybersécurité : vous commencez à repérer les pièges.";

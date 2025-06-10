@@ -13,6 +13,45 @@ body {
   padding: 20px;
 }
 
+/* --- Page d'authentification ---*/
+#auth-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+#auth-container input {
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#auth-container button {
+  padding: 10px 20px;
+  background-color: seagreen;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#auth-container button:hover {
+  background-color: mediumseagreen;
+}
+
+#auth-container h5 {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: dimgray;
+}
+
 /* --- HEADER : contexte et question --- */
 #question-context {
   background-color: lightsteelblue;
@@ -109,20 +148,15 @@ body {
   color: darkred;
 }
 .feedback-reputation{
+  margin-top: 10px;
+  text-align: center;
+  font-size: 0.9rem;
   background-color: papayawhip;
   border: 2px solid lightgray;
   color: black;
 }
 
-
-/* FOOTER (chrono + score plus tard)*/
-#footer {
-  margin-top: 70px;
-  text-align: center;
-  font-size: 0.9rem;
-
-}
-
+/* --- Score et barre de réputation ---*/
 #score-container {
   width: 100%;
   padding: 10px 30px;
@@ -131,6 +165,7 @@ body {
   align-items: center;
   gap: 15px;
   font-weight: bold;
+  margin-top: 20px;
 }
 
 #score-label {
@@ -150,4 +185,29 @@ body {
   height: 100%;
   width: 0%;
   transition: width 0.4s ease;
+}
+
+
+/* --- Footer --- */
+#footer {
+  background-color: #222;
+  color: #ddd;
+  text-align: center;
+  padding: 15px 10px;
+  font-size: 0.9em;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.3);
+  font-family: Arial, sans-serif;
+}
+
+#footer a {
+  color: #4caf50;
+  text-decoration: none;
+  margin: 0 8px;
+}
+
+#footer a:hover {
+  text-decoration: underline;
 }

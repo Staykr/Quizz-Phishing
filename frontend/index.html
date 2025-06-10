@@ -7,52 +7,75 @@
 </head>
 <body>
 
-  <!-- Contexte + Question -->
-  <header id="question-context">
-    <h2>Phase 1 - Travail</h2>
-    <p>Vous êtes au bureau. Vous recevez un nouvel email du service informatique.</p>
-    <h3>Ce message est-il sûr ou suspect ?</h3>
-  </header>
+  <!-- PAGE D'AUTHENTIFICATION
+  <div id="auth-container">
+    <h2>Bienvenue sur le quiz de prévention contre le phishing</h2>
+    <p>Veuillez vous enregistrer pour commencer :</p>
 
-  <!-- Corps principal -->
-  <main id="quiz-container">
+    <input type="text" id="username" placeholder="Nom* " required>
+    <input type="email" id="useremail" placeholder="E-mail*" required>
+    <button id="start-button">Commencer</button>
+    <h5> Tous les élément dôtés de * sont obligatoires </h5>
+  </div> -->
 
-    <!-- Message affiché -->
-    <section id="message-panel">
-      <h4>De : support-it@entreprise.fr</h4>
-      <p>Objet : URGENT - Mise à jour de sécurité requise</p>
-      <p>Bonjour,</p>
-      <p>Nous effectuons une mise à jour de tous les postes du service.</p>
-      <p>Veuillez cliquer sur le lien ci-dessous pour mettre à jour votre poste :</p>
-      <br>
-      <a href="#">www.entreprise-securite.net/update</a>
-      <p>Merci,</p>
-      <p>Équipe IT</p>
-    </section>
+  <!-- Conteneur principal -->
+  <main id="main-container" style="display: none">
 
-    <!-- Choix de réponses -->
-    <section id="choices-panel">
-      <button>Ouvrir le lien</button>
-      <button>Supprimer le message</button>
-      <button>Signaler au service informatique</button>
+    <!-- Contexte + Question -->
+    <header id="question-context">
+      <h2>Phase 1 - Travail</h2>
+      <p>Vous êtes au bureau. Vous recevez un nouvel email du service informatique.</p>
+      <h3>Ce message est-il sûr ou suspect ?</h3>
+    </header>
 
-      <!-- Bloc pour l'explication après la réponse -->
-      <div id="feedback"></div>
-    </section>
+    <!-- Corps principal -->
+    <div id="quiz-container">
+
+      <!-- Message affiché -->
+      <section id="message-panel">
+        <h4>De : support-it@entreprise.fr</h4>
+        <p>Objet : URGENT - Mise à jour de sécurité requise</p>
+        <p>Bonjour,</p>
+        <p>Nous effectuons une mise à jour de tous les postes du service.</p>
+        <p>Veuillez cliquer sur le lien ci-dessous pour mettre à jour votre poste :</p>
+        <br>
+        <a href="#">www.entreprise-securite.net/update</a>
+        <p>Merci,</p>
+        <p>Équipe IT</p>
+      </section>
+
+      <!-- Choix de réponses -->
+      <section id="choices-panel">
+        <button>Ouvrir le lien</button>
+        <button>Supprimer le message</button>
+        <button>Signaler au service informatique</button>
+
+        <!-- Bloc pour l'explication après la réponse -->
+        <div id="feedback"></div>
+      </section>
+    </div>
+
+    <!-- Bas de page : chrono et réputation -->
+    <!-- BARRE DE SCORE / RÉPUTATION -->
+      <div id="score-container">
+        <div id="score-label">Réputation :</div>
+        <div id="score-bar-wrapper">
+          <div id="score-bar"></div>
+        </div>
+      </div>
+      <div id="reputation-feedback" class="feedback"></div>
+
   </main>
 
-  <!-- Bas de page : chrono et réputation -->
-  <footer id="footer">
-    <!-- BARRE DE SCORE / RÉPUTATION -->
-    <div id="score-container">
-      <div id="score-label">Réputation :</div>
-      <div id="score-bar-wrapper">
-        <div id="score-bar"></div>
-      </div>
-    </div>
-    <div id="reputation-feedback" class="feedback"></div>
-
-  </footer>
+    <!-- Footer avec les mentions légales -->
+    <footer id="footer">
+      <p>
+        © 2025 Quiz-Phishing - Tous droits réservés. |
+        <a href="#">Mentions légales</a> |
+        <a href="#">Politique de confidentialité</a> |
+        <a href="#">Contact</a>
+      </p>
+    </footer>
 </body>
 
 <script src="script.js"></script>
