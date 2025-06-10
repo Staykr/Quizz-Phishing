@@ -35,19 +35,26 @@
       <button>Ouvrir le lien</button>
       <button>Supprimer le message</button>
       <button>Signaler au service informatique</button>
-    </section>
 
+      <!-- Bloc pour l'explication après la réponse -->
+      <div id="feedback"></div>
+    </section>
   </main>
 
-
   <!-- Bas de page : chrono et réputation -->
-  <footer id="status-bar">
-    <!-- À remplir plus tard avec timer ou barre de réputation -->
+  <footer id="footer">
+    <!-- BARRE DE SCORE / RÉPUTATION -->
+    <div id="score-container">
+      <div id="score-label">Réputation :</div>
+      <div id="score-bar-wrapper">
+        <div id="score-bar"></div>
+      </div>
+    </div>
+    <div id="reputation-feedback" class="feedback"></div>
 
-    <!-- Bloc pour l'explication après la réponse -->
-      <div id="feedback"></div>
   </footer>
-
-  <script src="script.js"></script>
 </body>
+
+<script src="script.js"></script>
+
 </html>

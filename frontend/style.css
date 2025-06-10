@@ -108,12 +108,46 @@ body {
   border: 2px solid red;
   color: darkred;
 }
+.feedback-reputation{
+  background-color: papayawhip;
+  border: 2px solid lightgray;
+  color: black;
+}
 
 
-/* FOOTER (chrono + score plus tard) */
-#status-bar {
-  margin-top: 30px;
+/* FOOTER (chrono + score plus tard)*/
+#footer {
+  margin-top: 70px;
   text-align: center;
   font-size: 0.9rem;
-  color: orangered;
+
+}
+
+#score-container {
+  width: 100%;
+  padding: 10px 30px;
+  background-color: floralwhite;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-weight: bold;
+}
+
+#score-label {
+  white-space: nowrap;
+}
+
+#score-bar-wrapper {
+  flex-grow: 1;
+  background-color: #ccc;
+  height: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+#score-bar {
+  background-color: orangered;
+  height: 100%;
+  width: 0%;
+  transition: width 0.4s ease;
 }
