@@ -1,5 +1,5 @@
 // Récupère les boutons
-//const startBtn = document.getElementById('start-button');
+const startBtn = document.getElementById('start-button');
 const buttons = document.querySelectorAll('#choices-panel button');
 
 // Récupère la zone où afficher l'explication
@@ -7,13 +7,13 @@ const feedback = document.getElementById('feedback');
 const reputationfeedback = document.getElementById('reputation-feedback');
 
 // Récupère les éléments de l'authentification et du contenu principal
-//const authContainer = document.getElementById('auth-container');
-//const mainContainer = document.getElementById('main-container');
+const authContainer = document.getElementById('auth-container');
+const mainContainer = document.getElementById('main-container');
 
 // Exemple de réponse correcte
 const correctChoice = "Signaler au service informatique";
 
-let score = 0;
+let score = 0; // Score initial
 const maxScore = 6; // Score maximum pour le quiz
 const scoreBar = document.getElementById('score-bar');
 
@@ -27,11 +27,13 @@ buttons.forEach(button => {
       feedback.textContent = "✅ Bonne réponse : Ce message présente plusieurs signes de phishing (adresse douteuse, lien non officiel).";
       score += 1;
       updateScoreBar();
+      showScoreChange(1);
     } else {
       feedback.className = "feedback bad";
       feedback.textContent = "❌ Mauvaise réponse : Ce message semblait légitime, mais contenait un lien suspect. Il valait mieux le signaler.";
-      score -= 1;
-      updateScoreBar();
+      const penalty = score > 0 ? -1 : 0; // Ne pas pénaliser si score déjà à 0
+      score += penalty;
+      updateScoreBar(penalty);
     }
 
     buttons.forEach(btn => btn.disabled = true);
@@ -39,7 +41,7 @@ buttons.forEach(button => {
 });
 
 // Authentification de l'utilisateur
-/*startBtn.addEventListener('click', () => {
+startBtn.addEventListener('click', () => {
   const name = document.getElementById('username').value.trim();
   const email = document.getElementById('useremail').value.trim();
 
@@ -49,14 +51,30 @@ buttons.forEach(button => {
   }
 
   // Stockage temporaire en mémoire (optionnel)
-  localStorage.setItem('username', name);
-  localStorage.setItem('useremail', email);
+  //localStorage.setItem('username', name);
+  //localStorage.setItem('useremail', email);
 
   // Cacher auth, afficher le quiz
-  authContainer.style.display = "none";
-  mainContainer.style.display = "block";
-}); */
-document.getElementById('main-container').style.display = "block";
+  //authContainer.style.display = "none";
+  //mainContainer.style.display = "block";
+});
+//document.getElementById('main-container').style.display = "block";
+
+// Système de transition après l'authentification
+document.getElementById("start-button").addEventListener("click", function () {
+  const authSection = document.getElementById("auth-container");
+  const quizSection = document.getElementById("main-container");
+
+  // Lancer l'effet de fondu
+  authSection.classList.add("fade-out");
+
+  // Après le fondu, cacher l'auth et montrer le quiz
+  setTimeout(() => {
+    authSection.classList.add("hidden");
+    quizSection.classList.remove("hidden");
+    quizSection.classList.add("fade-in");
+  }, 2000); // correspond à la durée du "transition: opacity"
+});
 
 // Update de la barre de score
 function updateScoreBar() {
@@ -77,4 +95,36 @@ function updatereputation() {
     reputationfeedback.textContent = "🚨 Expert : vous avez une excellente vigilance numérique !";
     reputationfeedback.className = "feedback good";
   }
+}
+
+// Affichage du score Gagné ou Perdu
+function showScoreChange(value) {
+  const scoreFeedback = document.getElementById("score-feedback");
+
+  // Générer des positions aléatoires dans les limites de la fenêtre
+  const randomTop = Math.floor(Math.random() * (window.innerHeight - 100)) + 20;
+  const randomLeft = Math.floor(Math.random() * (window.innerWidth - 100)) + 20;
+
+  // Appliquer les positions aléatoires
+  scoreFeedback.style.top = `${randomTop}px`;
+  scoreFeedback.style.left = `${randomLeft}px`;
+
+  // Définir le texte
+  const prefix = value > 0 ? "+" : "";
+  scoreFeedback.textContent = `${prefix}${value}`;
+
+  // Appliquer les bonnes classes
+  scoreFeedback.className = "score-change show"; // reset
+  if (value > 0) {
+    scoreFeedback.classList.add("score-positive");
+  } else if (value === 0) {
+    scoreFeedback.classList.add("score-neutral");
+  } else {
+    scoreFeedback.classList.add("score-negative");
+  }
+
+  // Masquer après 2 secondes
+  setTimeout(() => {
+    scoreFeedback.classList.remove("show");
+  }, 2000);
 }

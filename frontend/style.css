@@ -52,6 +52,29 @@ body {
   color: dimgray;
 }
 
+/* --- Transition entre autentification et quiz --- */
+.fade-section {
+  opacity: 1;
+  transition: opacity 2s ease;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 2s;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+.hidden {
+  display: none;
+}
+
 /* --- HEADER : contexte et question --- */
 #question-context {
   background-color: lightsteelblue;
@@ -185,6 +208,36 @@ body {
   height: 100%;
   width: 0%;
   transition: width 0.4s ease;
+}
+
+/* --- Affichage score --- */
+.score-change {
+  position: absolute;
+  top: 500px;
+  right: 100px;
+  font-size: 1.7em;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.score-change.show {
+  opacity: 1;
+  transform: translateY(-20px);
+}
+
+.score-positive {
+  color: springgreen;
+}
+
+.score-negative {
+  color: indianred;
+}
+
+.score-neutral {
+  color: dimgrey;
 }
 
 

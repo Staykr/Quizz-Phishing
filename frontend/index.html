@@ -7,8 +7,8 @@
 </head>
 <body>
 
-  <!-- PAGE D'AUTHENTIFICATION
-  <div id="auth-container">
+  <!-- PAGE D'AUTHENTIFICATION -->
+  <div id="auth-container" class ="fade-section">
     <h2>Bienvenue sur le quiz de prévention contre le phishing</h2>
     <p>Veuillez vous enregistrer pour commencer :</p>
 
@@ -16,10 +16,10 @@
     <input type="email" id="useremail" placeholder="E-mail*" required>
     <button id="start-button">Commencer</button>
     <h5> Tous les élément dôtés de * sont obligatoires </h5>
-  </div> -->
+  </div>
 
   <!-- Conteneur principal -->
-  <main id="main-container" style="display: none">
+  <main id="main-container" style="display: none" class="fade-section hidden">
 
     <!-- Contexte + Question -->
     <header id="question-context">
@@ -64,6 +64,7 @@
         </div>
       </div>
       <div id="reputation-feedback" class="feedback"></div>
+    <div id="score-feedback" class="score-change"></div>
 
   </main>
 
