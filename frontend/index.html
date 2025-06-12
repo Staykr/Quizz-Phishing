@@ -7,8 +7,8 @@
 </head>
 <body>
 
-  <!-- PAGE D'AUTHENTIFICATION
-  <div id="auth-container" class ="fade-section">
+  <!-- PAGE D'AUTHENTIFICATION-->
+  <div id="auth-container">
     <h2>Bienvenue sur le quiz de prévention contre le phishing</h2>
     <p>Veuillez vous enregistrer pour commencer :</p>
 
@@ -16,13 +16,13 @@
     <input type="email" id="useremail" placeholder="E-mail*" required>
     <button id="start-button">Commencer</button>
     <h5> Tous les élément dôtés de * sont obligatoires </h5>
-  </div>-->
+  </div>
 
   <!-- Conteneur principal -->
-  <main id="main-container" style="display: none" class="fade-section hidden">
+  <main id="main-container" style="display: none">
 
     <!-- Question 1 -->
-    <div id="Question-1">
+    <div id="Question-1" style="display: none">
       <!-- Contexte + Question -->
       <header id="question-context">
         <h2>Phase 1 - Travail</h2>
@@ -52,10 +52,39 @@
 
           <!-- Bloc pour l'explication après la réponse -->
           <div id="feedback"></div>
+          <button id="next-button" style="display: none;">Suivant</button>
         </section>
       </div>
     </div>
-    <!-- Question 2 -->
+    <!-- Question 2-->
+    <div id="Question-2" style="display: none">
+      <header id="question-context-2">
+        <h2>Phase 2 - Courrier suspect</h2>
+        <p>Vous recevez un email de la direction avec un document à consulter.</p>
+        <h3>Ce message est-il sûr ou suspect ?</h3>
+      </header>
+
+      <div id="contenu-question-2">
+        <section id="message-panel-2">
+          <h4>De : direction@etablissement.com</h4>
+          <p>Objet : Formulaire de sécurité à remplir</p>
+          <p>Bonjour,</p>
+          <p>Veuillez trouver ci-joint le formulaire de sécurité de l'établissement.</p>
+          <p>Merci de le remplir dès que possible.</p>
+          <br>
+          <a href="http://malicious-site.ru/formulaire.pdf" title="http://malicious-site.ru/formulaire.pdf" target="_blank">📎 formulaire_securite.pdf</a>
+          <p>Bien cordialement,</p>
+          <p>La Direction</p>
+        </section>
+        <section id="choices-panel-2">
+            <button>Ouvrir le document</button>
+            <button>Supprimer le message</button>
+            <button>Signaler au service informatique</button>
+
+            <div id="feedback-2"></div>
+        </section>
+      </div>
+    </div>
 
 
     <!-- Bas de page : chrono et réputation -->

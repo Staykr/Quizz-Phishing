@@ -2,6 +2,7 @@
 
 // Récupère les boutons
 const startBtn = document.getElementById('start-button');
+const nextbutton = document.getElementById('next-button');
 const buttons = document.querySelectorAll('#choices-panel button');
 const buttons2 = document.querySelectorAll('#choices-panel-2 button');
 
@@ -13,10 +14,12 @@ const reputationfeedback = document.getElementById('reputation-feedback');
 // Récupère les éléments de l'authentification et du contenu principal
 const authContainer = document.getElementById('auth-container');
 const mainContainer = document.getElementById('main-container');
+const Q1Block = document.getElementById('Question-1');
+const Q2Block = document.getElementById('Question-2');
 
 // Exemple de réponse correcte
-const correctChoice = "Signaler au service informatique";
-const correctChoice2 = "Supprimer le message";
+const correctChoice = "Supprimer le message";
+const correctChoice2 = "Signaler au service informatique";
 
 let score = 0; // Score initial
 const maxScore = 6; // Score maximum pour le quiz
@@ -24,7 +27,7 @@ const scoreBar = document.getElementById('score-bar');
 
 
 /* ---- Toutes les fonctions ---- */
-/*
+
 // Authentification de l'utilisateur
 startBtn.addEventListener('click', () => {
   const name = document.getElementById('username').value.trim();
@@ -35,16 +38,6 @@ startBtn.addEventListener('click', () => {
     return;
   }
 
-  // Lancer l'effet de fondu
-  authContainer.classList.add("fade-out");
-
-  // Après le fondu, cacher l'auth et montrer le quiz
-  setTimeout(() => {
-    authContainer.classList.add("hidden");
-    mainContainer.classList.remove("hidden");
-    mainContainer.classList.add("fade-in");
-  }, 2000); // correspond à la durée du "transition: opacity"
-
   // Stockage temporaire en mémoire (optionnel)
   //localStorage.setItem('username', name);
   //localStorage.setItem('useremail', email);
@@ -52,9 +45,26 @@ startBtn.addEventListener('click', () => {
   // Cacher auth, afficher le quiz
   authContainer.style.display = "none";
   mainContainer.style.display = "block";
-});*/
-document.getElementById('main-container').style.display = "block";
+  Q2Block.style.display = "block";
 
+});
+
+nextbutton.addEventListener('click', () => {
+  // Cacher la première question et afficher la deuxième
+    Q1Block.style.display = "none";
+    Q2Block.style.display = "block";
+
+    // Réinitialiser le feedback de la première question
+    feedback.textContent = "";
+    feedback.className = "";
+
+    // Réinitialiser les boutons de la première question
+    buttons.forEach(button => {
+        button.disabled = false;
+    });
+
+
+})
 
 /*  ---- QUESTION 1 ---- */
 // Détection du clic sur chaque bouton
@@ -70,13 +80,15 @@ buttons.forEach(button => {
       showScoreChange(1);
     } else {
       feedback.className = "feedback bad";
-      feedback.textContent = "❌ Mauvaise réponse : Ce message semblait légitime, mais contenait un lien suspect. Il valait mieux le signaler.";
+      feedback.textContent = "❌ Mauvaise réponse : Ce message semblait légitime, mais contenait un lien suspect. " +
+          "Vôtre entreprise ne vous fera jamais cliqué sur un lien pour télécharger des ressources" + "Il valait mieux supprimer le mail." + ".";
       const penalty = score > 0 ? -1 : 0; // Ne pas pénaliser si score déjà à 0
       score += penalty;
       updateScoreBar(penalty);
     }
 
     buttons.forEach(btn => btn.disabled = true);
+    nextbutton.style.display = 'inline-block';
   });
 });
 

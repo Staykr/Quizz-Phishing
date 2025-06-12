@@ -52,27 +52,12 @@ body {
   color: dimgray;
 }
 
-/* --- Transition entre autentification et quiz --- */
-.fade-section {
-  opacity: 1;
-  transition: opacity 2s ease;
-}
-
-.fade-out {
-  opacity: 0;
-  transition: opacity 2s;
-}
-
-.fade-in {
-  opacity: 0;
-  animation: fadeIn 1s forwards;
-}
-
 .hidden {
   display: none;
 }
 
 /* --- HEADER : contexte et question --- */
+/* Question 1*/
 #question-context {
   background-color: lightsteelblue;
   padding: 20px;
@@ -92,8 +77,31 @@ body {
   color: darkblue;
 }
 
+/* Question 2 */
+#question-context-2 {
+  background-color: lightsteelblue;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#question-context-2 h2 {
+  font-size: 1.4rem;
+  color: darkslateblue;
+}
+
+#question-context-2 h3 {
+  margin-top: 10px;
+  color: darkblue;
+}
 /* --- MAIN : deux colonnes --- */
 #contenu-question-1 {
+  display: flex;
+  gap: 20px;
+}
+#contenu-question-2 {
   display: flex;
   gap: 20px;
 }
@@ -114,6 +122,27 @@ body {
 }
 
 #message-panel a {
+  color: darkblue;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* MESSAGE PANEL (à gauche) */
+#message-panel-2 {
+  flex: 2;
+  background-color: white;
+  padding: 20px;
+  border-left: 5px solid steelblue;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+#message-panel-2 h4 {
+  color: dodgerblue;
+  margin-bottom: 10px;
+}
+
+#message-panel-2 a {
   color: darkblue;
   font-weight: bold;
   text-decoration: none;
@@ -146,6 +175,32 @@ body {
   background-color: lightskyblue;
 }
 
+#choices-panel-2 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: whitesmoke;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+#choices-panel-2 button {
+  padding: 12px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: deepskyblue;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#choices-panel-2 button:hover {
+  background-color: lightskyblue;
+}
+
 /* === FEEDBACK ZONE === */
 .feedback {
   padding: 15px;
@@ -167,6 +222,28 @@ body {
   border: 2px solid red;
   color: darkred;
 }
+
+.feedback-2 {
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+  font-weight: 500;
+}
+
+/* Bonne réponse */
+.feedback-2.good {
+  background-color: darkseagreen;
+  border: 2px solid green;
+  color: forestgreen;
+}
+
+/* Mauvaise réponse */
+.feedback-2.bad {
+  background-color: peachpuff;
+  border: 2px solid red;
+  color: darkred;
+}
+
 .feedback-reputation{
   margin-top: 10px;
   text-align: center;
