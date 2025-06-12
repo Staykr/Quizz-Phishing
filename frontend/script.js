@@ -1,9 +1,13 @@
+/* ====== INITIALISATION ====== */
+
 // Récupère les boutons
 const startBtn = document.getElementById('start-button');
 const buttons = document.querySelectorAll('#choices-panel button');
+const buttons2 = document.querySelectorAll('#choices-panel-2 button');
 
 // Récupère la zone où afficher l'explication
 const feedback = document.getElementById('feedback');
+const feedback2 = document.getElementById('feedback-2');
 const reputationfeedback = document.getElementById('reputation-feedback');
 
 // Récupère les éléments de l'authentification et du contenu principal
@@ -12,11 +16,47 @@ const mainContainer = document.getElementById('main-container');
 
 // Exemple de réponse correcte
 const correctChoice = "Signaler au service informatique";
+const correctChoice2 = "Supprimer le message";
 
 let score = 0; // Score initial
 const maxScore = 6; // Score maximum pour le quiz
 const scoreBar = document.getElementById('score-bar');
 
+
+/* ---- Toutes les fonctions ---- */
+/*
+// Authentification de l'utilisateur
+startBtn.addEventListener('click', () => {
+  const name = document.getElementById('username').value.trim();
+  const email = document.getElementById('useremail').value.trim();
+
+  if (name === "" || email === "") {
+    alert("Veuillez remplir tous les champs.");
+    return;
+  }
+
+  // Lancer l'effet de fondu
+  authContainer.classList.add("fade-out");
+
+  // Après le fondu, cacher l'auth et montrer le quiz
+  setTimeout(() => {
+    authContainer.classList.add("hidden");
+    mainContainer.classList.remove("hidden");
+    mainContainer.classList.add("fade-in");
+  }, 2000); // correspond à la durée du "transition: opacity"
+
+  // Stockage temporaire en mémoire (optionnel)
+  //localStorage.setItem('username', name);
+  //localStorage.setItem('useremail', email);
+
+  // Cacher auth, afficher le quiz
+  authContainer.style.display = "none";
+  mainContainer.style.display = "block";
+});*/
+document.getElementById('main-container').style.display = "block";
+
+
+/*  ---- QUESTION 1 ---- */
 // Détection du clic sur chaque bouton
 buttons.forEach(button => {
   button.addEventListener('click', () => {
@@ -40,40 +80,28 @@ buttons.forEach(button => {
   });
 });
 
-// Authentification de l'utilisateur
-startBtn.addEventListener('click', () => {
-  const name = document.getElementById('username').value.trim();
-  const email = document.getElementById('useremail').value.trim();
+/*  ---- QUESTION 2 ---- */
+buttons2.forEach(button => {
+  button.addEventListener('click', () => {
+    const chosen = button.textContent;
 
-  if (name === "" || email === "") {
-    alert("Veuillez remplir tous les champs.");
-    return;
-  }
+    if (chosen === correctChoice2) {
+      feedback2.className = "feedback good";
+      feedback2.textContent = "✅ Bien joué ! Le lien de la pièce jointe pointe vers un site suspect. Ce message devait être signalé.";
+      score += 1;
+      updateScoreBar();
+      showScoreChange(1);
+    } else {
+      feedback2.className = "feedback bad";
+      feedback2.textContent = "❌ Mauvaise réponse : Toujours vérifier où mène une pièce jointe en survolant son lien.";
+      const penalty = score > 0 ? -1 : 0;
+      score += penalty;
+      updateScoreBar();
+      showScoreChange(penalty)
+    }
 
-  // Stockage temporaire en mémoire (optionnel)
-  //localStorage.setItem('username', name);
-  //localStorage.setItem('useremail', email);
-
-  // Cacher auth, afficher le quiz
-  //authContainer.style.display = "none";
-  //mainContainer.style.display = "block";
-});
-//document.getElementById('main-container').style.display = "block";
-
-// Système de transition après l'authentification
-document.getElementById("start-button").addEventListener("click", function () {
-  const authSection = document.getElementById("auth-container");
-  const quizSection = document.getElementById("main-container");
-
-  // Lancer l'effet de fondu
-  authSection.classList.add("fade-out");
-
-  // Après le fondu, cacher l'auth et montrer le quiz
-  setTimeout(() => {
-    authSection.classList.add("hidden");
-    quizSection.classList.remove("hidden");
-    quizSection.classList.add("fade-in");
-  }, 2000); // correspond à la durée du "transition: opacity"
+    buttons2.forEach(btn => btn.disabled = true);
+  });
 });
 
 // Update de la barre de score
